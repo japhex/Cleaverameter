@@ -21,12 +21,16 @@ router.get('/', (req, res) => {
 
 /* GET client parameters. */
 router.get('/client/parameters', (req, res) => {
-    models.system_parameter.findAll({where:{client_context:req.session.clientId}}).then(parameters => {
-        res.render('models/system_parameter', {
-            title: 'Cleaverameter | Parameters',
-            parameters: parameters
+    if (req.session.clientId === undefined) {
+        res.redirect('/');
+    } else {
+        models.system_parameter.findAll({where:{client_context:req.session.clientId}}).then(parameters => {
+            res.render('models/system_parameter', {
+                title: 'Cleaverameter | Parameters',
+                parameters: parameters
+            });
         });
-    });
+    }
 });
 
 /* POST client context. */
