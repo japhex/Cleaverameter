@@ -10,8 +10,10 @@ router.use(sessionObject);
 /* GET home page. */
 router.get('/', (req, res) => {
     models.client.findAll().then(clients => {
+        req.session.clients = clients;
+
         res.render('index', {
-            title: 'Express',
+            title: 'Cleaverameter',
             clients: clients
         });
     });
@@ -21,7 +23,7 @@ router.get('/', (req, res) => {
 router.get('/client/parameters', (req, res) => {
     models.system_parameter.findAll({where:{client_context:req.session.clientId}}).then(parameters => {
         res.render('models/system_parameter', {
-            title: 'Parameters',
+            title: 'Cleaverameter | Parameters',
             parameters: parameters
         });
     });
@@ -35,6 +37,7 @@ router.post('/client/set-context', (req, res) => {
 
     models.client.findOne({where:{id:clientId}}).then(client => {
         req.session.clientName = client.name;
+        req.session.clientVersion = client.version;
         res.redirect('/');
     });
 });
