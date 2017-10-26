@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
     const SystemParameter = sequelize.define('system_parameter', {
+        client_context: {type: DataTypes.STRING},
         name: {type: DataTypes.STRING},
         description: {type: DataTypes.TEXT},
         note: {type: DataTypes.TEXT},
@@ -33,13 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     // force: true will drop the table if it already exists
-    SystemParameter.sync().then(() => {
-      // Table created
-      return SystemParameter.create({
-        name: 'Test',
-        description: 'Cleaver likes balls.'
-      });
-    });
+    SystemParameter.sync();
 
     return SystemParameter;
 };

@@ -4,12 +4,24 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res) => {
-    models.system_parameter.findAll().then(parameters => {
+    res.locals.clientId = req.session.clientId;
+
+    models.client.findAll().then(clients => {
         res.render('index', {
             title: 'Express',
-            parameters: parameters
+            clients: clients
         });
     });
+});
+
+/* POST client context. */
+router.post('/client/set-context', (req, res) => {
+    var clientId = req.body.clientId;
+
+    req.session.clientId = clientId;
+    res.locals.clientId = req.session.clientId;
+
+    res.redirect('/');
 });
 
 module.exports = router;

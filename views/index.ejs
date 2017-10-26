@@ -1,10 +1,16 @@
 <% include header %>
 
-    <h1><%-title %></h1>
-    <p>Welcome to <%-title %></p>
+    <form method="post" action="/client/set-context">
+        <select id="clientId" name="clientId">
+            <% for(var i=0;i < clients.length; i++) { %>
+                <option value="<%= clients[i].id %>"><%= clients[i].name %></option>
+            <% } %>
+        </select>
+        <button>Set client</button>
+    </form>
 
-    <% for(var i=0;i < parameters.length; i++) { %>
-        <h1><%= parameters[i].description %></h1>
+    <% if (clientId != null) { %>
+        <%= clientId %>
     <% } %>
 
 <% include footer %>
