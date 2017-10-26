@@ -1,0 +1,5 @@
+<% layout('../layouts/main') -%>
+
+<% for(var i=0;i < parameters.length; i++) { %>
+    <option value="<%= parameters[i].id %>"><%= parameters[i].description %></option>
+<% } %>

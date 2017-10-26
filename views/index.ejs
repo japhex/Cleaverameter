@@ -1,16 +1,10 @@
-<% include header %>
+<% layout('layouts/main') -%>
 
-    <form method="post" action="/client/set-context">
-        <select id="clientId" name="clientId">
-            <% for(var i=0;i < clients.length; i++) { %>
-                <option value="<%= clients[i].id %>"><%= clients[i].name %></option>
-            <% } %>
-        </select>
-        <button>Set client</button>
-    </form>
-
-    <% if (clientId != null) { %>
-        <%= clientId %>
-    <% } %>
-
-<% include footer %>
+<form method="post" action="/client/set-context">
+    <select id="clientId" name="clientId">
+        <% for(var i=0;i < clients.length; i++) { %>
+            <option value="<%= clients[i].id %>"><%= clients[i].name %></option>
+        <% } %>
+    </select>
+    <button>Set client</button>
+</form>

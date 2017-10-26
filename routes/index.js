@@ -2,10 +2,13 @@ const models = require('../models');
 const express = require('express');
 const router = express.Router();
 
+// Middleware
+const sessionObject = require('../middleware/session');
+
+router.use(sessionObject);
+
 /* GET home page. */
 router.get('/', (req, res) => {
-    res.locals.clientId = req.session.clientId;
-
     models.client.findAll().then(clients => {
         res.render('index', {
             title: 'Express',
@@ -14,14 +17,26 @@ router.get('/', (req, res) => {
     });
 });
 
+/* GET client parameters. */
+router.get('/client/parameters', (req, res) => {
+    models.system_parameter.findAll({where:{client_context:req.session.clientId}}).then(parameters => {
+        res.render('models/system_parameter', {
+            title: 'Parameters',
+            parameters: parameters
+        });
+    });
+});
+
 /* POST client context. */
 router.post('/client/set-context', (req, res) => {
-    var clientId = req.body.clientId;
+    let clientId = req.body.clientId;
 
     req.session.clientId = clientId;
-    res.locals.clientId = req.session.clientId;
 
-    res.redirect('/');
+    models.client.findOne({where:{id:clientId}}).then(client => {
+        req.session.clientName = client.name;
+        res.redirect('/');
+    });
 });
 
 module.exports = router;

@@ -23,6 +23,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "debug": "^2.2.0",
+    "ejs-locals": "^1.0.2",
     "express-session": "^1.15.6",
     "gulp": "^3.9.0",
     "gulp-livereload": "^3.8.0",

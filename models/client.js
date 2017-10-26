@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     });
 
-    // force: true will drop the table if it already exists
     Client.sync();
 
     return Client;
