@@ -8,3 +8,12 @@ body > .container {
 .header-form .form-control {
   width: auto;
   display: inline-block; }
+
+.card-header__value {
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+  .card-header__value--active {
+    color: #28a745; }
+  .card-header__value--inactive {
+    color: #dc3545; }

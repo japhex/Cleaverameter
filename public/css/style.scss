@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 body {
     > .container {
         padding:1rem 0;
@@ -15,5 +17,18 @@ body {
     .form-control {
         width:auto;
         display:inline-block;
+    }
+}
+
+.card-header__value {
+    position: absolute;
+    right:10px;
+    top:10px;
+
+    &--active {
+        color:$color-green;
+    }
+    &--inactive {
+        color:$color-red;
     }
 }
