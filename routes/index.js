@@ -42,7 +42,7 @@ router.post('/client/set-context', (req, res) => {
     models.client.findOne({where:{id:clientId}}).then(client => {
         req.session.clientName = client.name;
         req.session.clientVersion = client.version;
-        res.redirect('/');
+        res.redirect('/client/parameters');
     });
 });
 

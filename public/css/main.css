@@ -5,6 +5,9 @@ body > .container {
   display: block;
   font-size: 14px; }
 
+.sub-header .navbar {
+  background: #e3f2fd; }
+
 .header-form .form-control {
   width: auto;
   display: inline-block; }
@@ -17,3 +20,4 @@ body > .container {
     color: #28a745; }
   .card-header__value--inactive {
     color: #dc3545; }
+

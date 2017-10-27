@@ -3,38 +3,40 @@ const nodemon = require('gulp-nodemon');
 const plumber = require('gulp-plumber');
 const livereload = require('gulp-livereload');
 const sass = require('gulp-sass');
+const babel = require('gulp-babel');
+const source = require('vinyl-source-stream');
+const concat = require('gulp-concat');
+const browserify = require('browserify');
+const underscoreify = require('node-underscorify');
+
+function errorHandler (err) {
+    console.log(err.toString());
+}
 
 gulp.task('sass', () => {
-  gulp.src('./public/css/*.scss')
-    .pipe(plumber())
-    .pipe(sass())
-    .pipe(gulp.dest('./public/css'))
-    .pipe(livereload());
+    gulp.src('./src/scss/*.scss')
+        .pipe(plumber())
+        .pipe(sass({ style: 'expanded',errLogToConsole: true }))
+        .pipe(concat('main.css'))
+        .pipe(gulp.dest('./public/css'))
+        .pipe(livereload());
+});
+
+gulp.task('js', () => {
+    return browserify('./src/js/app.js', {debug: true, transform: [underscoreify]})
+        .transform("babelify")
+        .bundle()
+        .on('error', errorHandler)
+        .pipe(source('main.build.js'))
+        .pipe(gulp.dest('./public/js'))
 });
 
 gulp.task('watch', () => {
-  gulp.watch('./public/css/*.scss', ['sass']);
+    gulp.watch('./public/css/*.scss', ['sass']);
 });
 
-// gulp.task('develop', () => {
-//   livereload.listen();
-//   nodemon({
-//     script: 'bin/www',
-//     ext: 'js ejs coffee',
-//     stdout: false
-//   }).on('readable', () => {
-//     this.stdout.on('data', (chunk) => {
-//       if (/^Express server listening on port/.test(chunk)) {
-//         livereload.changed(__dirname);
-//       }
-//     });
-//     this.stdout.pipe(process.stdout);
-//     this.stderr.pipe(process.stderr);
-//   });
-// });
-
 gulp.task('default', [
-  'sass',
-  //'develop',
-  'watch'
+    'sass',
+    'js',
+    'watch'
 ]);
