@@ -42,6 +42,9 @@ router.post('/client/set-context', (req, res) => {
     models.client.findOne({where:{id:clientId}}).then(client => {
         req.session.clientName = client.name;
         req.session.clientVersion = client.version;
+        req.session.currentRelease = client.current_release;
+        req.session.fcpLabel = client.fcp_label;
+        req.session.buildStatus = client.build_status;
         res.redirect('/client/parameters');
     });
 });

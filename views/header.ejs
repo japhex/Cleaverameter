@@ -27,7 +27,16 @@
     <nav class="navbar navbar-light">
         <div class="container">
             <div class="sub-header__version">
-                <small>FCP <%= clientVersion %></small>
+                <small>FCP <%= clientVersion %></small> |
+                <small>Current Release <%= currentRelease %></small> |
+                <small>Label <%= fcpLabel %></small> |
+                <small>Build status
+                    <% if (buildStatus === 'successful') { %>
+                        <i class="material-icons">cloud_done</i>
+                    <% } else { %>
+                        <i class="material-icons">cloud_off</i>
+                    <% } %>
+                </small>
             </div>
             <div class="justify-content-end">
                 <ul class="navbar-nav">
