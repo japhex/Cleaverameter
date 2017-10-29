@@ -1,0 +1,32 @@
+.navbar-brand {
+    small {
+        display: block;
+        font-size: 14px;
+    }
+}
+
+.sub-header {
+    .navbar {
+        background:$color-light-blue;
+    }
+}
+
+.header-form {
+    .form-control {
+        width:auto;
+        display:inline-block;
+    }
+}
+
+.sticky-header {
+    &.stuck {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+main.header-stuck {
+    padding-top:61px;
+}
