@@ -10,6 +10,12 @@ body > .container {
   .card-header__value--inactive {
     color: #dc3545; }
 
+.card-header__name {
+  font-size: 1rem; }
+
+.card-header__value-type {
+  display: inline-block; }
+
 .navbar-brand small {
   display: block;
   font-size: 14px; }
