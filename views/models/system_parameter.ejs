@@ -15,16 +15,16 @@
                         <%= parameterName %>
                     </h2>
                     <small class="card-header__value-type badge badge-warning">
-                        <%= parameters[i].value_type %>
+                        <%= parameters[i].value_type.toUpperCase() %>
                     </small>
-                    <% if (parameters[i].value) { %>
+                    <!-- <% if (parameters[i].value) { %>
                         <i class="card-header__value card-header__value--active material-icons">done</i>
                     <% } else { %>
                         <i class="card-header__value card-header__value--inactive material-icons">close</i>
-                    <% } %>
+                    <% } %> -->
                 </div>
                 <div class="card-body text-secondary">
-                    <h4 class="card-title"><%= parameterValue %></h4>
+                    <h4 class="card-title"><code><%= parameterValue %></code></h4>
                     <p class="card-text"><%= parameters[i].description %></p>
                 </div>
             </div>

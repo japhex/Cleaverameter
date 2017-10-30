@@ -11,6 +11,29 @@
     }
 }
 
+.sub-header__version {
+    line-height: 2;
+    
+    small {
+        position: relative;
+    }
+}
+
+.sub-header__status {
+    position: absolute;
+    top:-3px;
+    right:-22px;
+    font-size:19px;
+
+    &--success {
+        color:$color-green;
+    }
+
+    &--failed {
+        color:$color-red;
+    }
+}
+
 .header-form {
     .form-control {
         width:auto;

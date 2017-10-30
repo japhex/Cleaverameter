@@ -23,6 +23,13 @@ body > .container {
 .sub-header .navbar {
   background: #e3f2fd; }
 
+.sub-header__status {
+  font-size: 19px; }
+  .sub-header__status--success {
+    color: #28a745; }
+  .sub-header__status--failed {
+    color: #dc3545; }
+
 .header-form .form-control {
   width: auto;
   display: inline-block; }

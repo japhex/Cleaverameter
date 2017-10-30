@@ -27,14 +27,15 @@
     <nav class="navbar navbar-light">
         <div class="container">
             <div class="sub-header__version">
-                <small>FCP <%= clientVersion %></small> |
-                <small>Current Release <%= currentRelease %></small> |
-                <small>Label <%= fcpLabel %></small> |
-                <small>Build status
+                <small><strong>FCP Version:</strong> <%= clientVersion %></small> |
+                <small><strong>Current Release:</strong> <%= currentRelease %></small> |
+                <small><strong>Label:</strong> <%= fcpLabel %></small> |
+                <small>
+                    <strong>Build status:</strong>
                     <% if (buildStatus === 'successful') { %>
-                        <i class="material-icons">cloud_done</i>
+                        <i class="sub-header__status sub-header__status--success material-icons">cloud_done</i>
                     <% } else { %>
-                        <i class="material-icons">cloud_off</i>
+                        <i class="sub-header__status sub-header__status--failed material-icons">cloud_off</i>
                     <% } %>
                 </small>
             </div>
