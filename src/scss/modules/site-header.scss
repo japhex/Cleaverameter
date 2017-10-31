@@ -5,7 +5,11 @@
     }
 }
 
-.sub-header {
+.sub-header__client-details {
+    color:#fff;
+}
+
+.sub-header__client-actions {
     .navbar {
         background:$color-light-blue;
     }
@@ -13,9 +17,15 @@
 
 .sub-header__version {
     line-height: 2;
-    
+
     small {
         position: relative;
+    }
+}
+
+.sub-header__client-details {
+    .navbar {
+        padding:0;
     }
 }
 

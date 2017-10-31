@@ -22,7 +22,7 @@
                         <% if (parameters[i].type == 'java.lang.Boolean' || parameters[i].type == 'java.lang.String' || parameters[i].type == 'java.lang.Integer' || parameters[i].type == 'java.lang.Double') { %>
                             <%= parameterValue.match(/\>(.*?)\</)[1] %>
                         <% } else { %>
-                            <%= parameterValue %>
+                            <%= parameterValue.length > 100 ? parameterValue.substring(0,100) + '...' : parameterValue %>
                         <% } %>
                     </code>
                 </h4>

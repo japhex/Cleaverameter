@@ -26,13 +26,19 @@ body > .container {
   display: block;
   font-size: 14px; }
 
-.sub-header .navbar {
+.sub-header__client-details {
+  color: #fff; }
+
+.sub-header__client-actions .navbar {
   background: #e3f2fd; }
 
 .sub-header__version {
   line-height: 2; }
   .sub-header__version small {
     position: relative; }
+
+.sub-header__client-details .navbar {
+  padding: 0; }
 
 .sub-header__status {
   position: absolute;
