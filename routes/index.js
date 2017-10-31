@@ -24,7 +24,7 @@ router.get('/client/parameters', (req, res) => {
     if (req.session.clientId === undefined) {
         res.redirect('/');
     } else {
-        models.system_parameter.findAll({where:{client_context:req.session.clientId}}).then(parameters => {
+        models.system_parameter.findAll({where:{client_context:req.session.clientId}, include: [{ all: true, nested: true }], limit:100}).then(parameters => {
             res.render('models/system_parameter', {
                 title: 'Cleaverameter | Parameters',
                 parameters: parameters

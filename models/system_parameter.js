@@ -33,6 +33,22 @@ module.exports = (sequelize, DataTypes) => {
         underscored: true
     });
 
+    const SystemParameterGroup = sequelize.define('system_parameter_group', {
+        name: {type: DataTypes.STRING},
+        description: {type: DataTypes.STRING},
+        created_dts: {type: DataTypes.DATE},
+        created_by: {type: DataTypes.STRING},
+        last_updated_dts: {type: DataTypes.DATE},
+        last_updated_by: {type: DataTypes.STRING},
+    }, {
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true
+    });
+
+    SystemParameter.belongsTo(SystemParameterGroup, {foreignKey: 'group_id'});
+    SystemParameterGroup.hasMany(SystemParameter, {foreignKey: 'group_id', as: 'SystemParameters'});
+
     SystemParameter.sync();
 
     return SystemParameter;
