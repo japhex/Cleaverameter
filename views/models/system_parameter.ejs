@@ -2,43 +2,36 @@
 
 <div class="card-columns">
     <% for(var i=0;i < parameters.length; i++) { %>
-
-            <div class="card border-secondary mb-3">
-                <div class="card-header">
-                    <h2 class="card-header__name">
-                        <%
-                            var parameterName = parameters[i].name.toString().replace(/_/g, ' '),
-                                valueType = parameters[i].type,
-                                parameterValue = parameters[i].value;
-                                //parameterValue = parameterValue.match(/\>(.*?)\</)[1];
-                        %>
-                        <%= parameterName %>
-                    </h2>
-                    <small class="card-header__value-type badge badge-warning">
-                        <%= valueType !== null ? valueType.replace('java.lang.','').replace('java.util.','') : valueType %>
-                    </small>
-                    <!-- <% if (parameters[i].value) { %>
-                        <i class="card-header__value card-header__value--active material-icons">done</i>
-                    <% } else { %>
-                        <i class="card-header__value card-header__value--inactive material-icons">close</i>
-                    <% } %> -->
-                </div>
-                <div class="card-body text-secondary">
-                    <h4 class="card-title">
-                        <code>
-                            <% if (parameters[i].type == 'java.lang.Boolean' || parameters[i].type == 'java.lang.String' || parameters[i].type == 'java.lang.Integer' || parameters[i].type == 'java.lang.Double') { %>
-                                <%= parameterValue.match(/\>(.*?)\</)[1] %>
-                            <% } else { %>
-                                <%= parameterValue %>
-                            <% } %>
-                        </code>
-                    </h4>
-                    <p class="card-text"><%= parameters[i].description %></p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted"><%= parameters[i].system_parameter_group !== null ? parameters[i].system_parameter_group.dataValues.name : 'none' %></small>
-                </div>
+        <div class="card border-secondary mb-3">
+            <div class="card-header">
+                <h2 class="card-header__name">
+                    <%
+                        var parameterName = parameters[i].name.toString().replace(/_/g, ' '),
+                            valueType = parameters[i].type,
+                            parameterValue = parameters[i].value;
+                    %>
+                    <%= parameterName %>
+                </h2>
+                <small class="card-header__value-type badge badge-warning">
+                    <%= valueType !== null ? valueType.replace('java.lang.','').replace('java.util.','') : valueType %>
+                </small>
             </div>
-
+            <div class="card-body text-secondary">
+                <h4 class="card-title">
+                    <code>
+                        <% if (parameters[i].type == 'java.lang.Boolean' || parameters[i].type == 'java.lang.String' || parameters[i].type == 'java.lang.Integer' || parameters[i].type == 'java.lang.Double') { %>
+                            <%= parameterValue.match(/\>(.*?)\</)[1] %>
+                        <% } else { %>
+                            <%= parameterValue %>
+                        <% } %>
+                    </code>
+                </h4>
+                <p class="card-text"><%= parameters[i].description %></p>
+            </div>
+            <div class="card-footer">
+                <% var parameterGroup = parameters[i].system_parameter_group !== null ? parameters[i].system_parameter_group.dataValues.name : 'none'; %>
+                <a href="?parameterGroup=<%= parameters[i].group_id %>"><small class="text-muted"><%= parameterGroup %></small></a>
+            </div>
+        </div>
     <% } %>
 </div>
