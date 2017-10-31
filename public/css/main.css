@@ -3,6 +3,14 @@ body > .container {
 
 .card-columns {
   column-count: 3; }
+  @media only screen and (max-width: 767px) {
+    .card-columns {
+      margin: 0 20px;
+      column-count: 2; } }
+  @media only screen and (max-width: 480px) {
+    .card-columns {
+      margin: 0 20px;
+      column-count: 1; } }
 
 .card-header__value {
   position: absolute;
