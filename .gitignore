@@ -1,5 +1,4 @@
 node_modules/
-public
-public/*
+public/
 .nyc_output
 .sass-cache
