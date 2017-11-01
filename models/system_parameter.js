@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         priority: {type: DataTypes.STRING},
         created_dts: {type: DataTypes.DATE},
         created_by: {type: DataTypes.STRING},
-        last_updated_dts: {type: DataTypes.TIME},
+        last_updated_dts: {type: DataTypes.DATE},
         last_updated_by: {type: DataTypes.STRING}
     }, {
         timestamps: false,

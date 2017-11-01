@@ -7,7 +7,10 @@
                 parameterValueType = parameters[i].type,
                 parameterValue = parameters[i].value,
                 parameterBusinessQuestion = parameters[i].question,
-                parameterDescription = parameters[i].description;
+                parameterDescription = parameters[i].description,
+                parameterLastUpdatedTime = moment(parameters[i].last_updated_dts).format(),
+                parameterLastUpdatedBy = parameters[i].last_updated_by,
+                parameterGroup = parameters[i].system_parameter_group !== null ? parameters[i].system_parameter_group.dataValues.name : 'none';
         %>
 
         <div class="card border-secondary mb-3">
@@ -17,6 +20,9 @@
                 </h2>
                 <small class="card-header__value-type badge badge-warning">
                     <%= parameterValueType !== null ? parameterValueType.replace('java.lang.','').replace('java.util.','') : parameterValueType %>
+                </small>
+                <small class="card-header__value-type badge badge-secondary">
+                    <a href="?parameterGroup=<%= parameters[i].group_id %>"><%= parameterGroup %></a>
                 </small>
                 <div class="card-header__info clearfix">
                     <i class="material-icons" data-toggle="tooltip" data-placement="left" title="<%= parameterBusinessQuestion %>">help_outline</i>
@@ -35,8 +41,7 @@
                 <p class="card-text"><%= parameterDescription %></p>
             </div>
             <div class="card-footer">
-                <% var parameterGroup = parameters[i].system_parameter_group !== null ? parameters[i].system_parameter_group.dataValues.name : 'none'; %>
-                <a href="?parameterGroup=<%= parameters[i].group_id %>"><small class="text-muted"><%= parameterGroup %></small></a>
+                <small>last updated <%= moment(parameterLastUpdatedTime).fromNow() %> by <strong><%= parameterLastUpdatedBy %></strong></small>
             </div>
         </div>
     <% } %>
