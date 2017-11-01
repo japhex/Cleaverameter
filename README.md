@@ -29,4 +29,4 @@ The app runs off of a Node.js/Express.js stack mainly, but overall includes the 
 4. run 'npm start'
 5. **(optional)** This will run the app, and the app's models will scaffold the Database tables for you. There are also some seed scripts, so if you wish to start with some dummy data, run 'node_modules/.bin/sequelize db:seed:all'
 
-**NOTE: The app runs on port localhost:3000, so port 3000, if you have another process running on this port, you'll need to stop it.**
+**NOTE: The app runs on localhost:3000, so port 3000, if you have another process running on this port, you'll need to stop it.**
