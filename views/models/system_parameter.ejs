@@ -2,19 +2,25 @@
 
 <div class="card-columns">
     <% for(var i=0;i < parameters.length; i++) { %>
+        <%
+            var parameterName = parameters[i].name.toString().replace(/_/g, ' '),
+                parameterValueType = parameters[i].type,
+                parameterValue = parameters[i].value,
+                parameterBusinessQuestion = parameters[i].question,
+                parameterDescription = parameters[i].description;
+        %>
+
         <div class="card border-secondary mb-3">
             <div class="card-header">
                 <h2 class="card-header__name">
-                    <%
-                        var parameterName = parameters[i].name.toString().replace(/_/g, ' '),
-                            valueType = parameters[i].type,
-                            parameterValue = parameters[i].value;
-                    %>
                     <%= parameterName %>
                 </h2>
                 <small class="card-header__value-type badge badge-warning">
-                    <%= valueType !== null ? valueType.replace('java.lang.','').replace('java.util.','') : valueType %>
+                    <%= parameterValueType !== null ? parameterValueType.replace('java.lang.','').replace('java.util.','') : parameterValueType %>
                 </small>
+                <div class="card-header__info clearfix">
+                    <i class="material-icons" data-toggle="tooltip" data-placement="left" title="<%= parameterBusinessQuestion %>">help_outline</i>
+                </div>
             </div>
             <div class="card-body text-secondary">
                 <h4 class="card-title">
@@ -26,7 +32,7 @@
                         <% } %>
                     </code>
                 </h4>
-                <p class="card-text"><%= parameters[i].description %></p>
+                <p class="card-text"><%= parameterDescription %></p>
             </div>
             <div class="card-footer">
                 <% var parameterGroup = parameters[i].system_parameter_group !== null ? parameters[i].system_parameter_group.dataValues.name : 'none'; %>

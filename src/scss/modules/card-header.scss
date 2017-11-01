@@ -33,6 +33,10 @@ $retina: '(min--moz-device-pixel-ratio: 1.5),
 }
 
 .card {
+    &-header {
+        position: relative;
+    }
+
     &-header__value {
         position: absolute;
         right:10px;
@@ -52,6 +56,19 @@ $retina: '(min--moz-device-pixel-ratio: 1.5),
 
     &-header__name {
         font-size: 1rem;
+    }
+
+    &-header__info {
+        float:right;
+        color:#000;
+
+        i {
+            cursor: pointer;
+        }
+
+        .tooltip.in {
+            opacity: 1;
+        }
     }
 
     &-footer {
