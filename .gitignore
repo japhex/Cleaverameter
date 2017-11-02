@@ -4,5 +4,5 @@ public/*
 .sass-cache
 public/**/*.js
 public/**/*.css
-config/config.json
+config/**/*.json
 npm-debug.log
