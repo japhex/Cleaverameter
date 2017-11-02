@@ -17,7 +17,7 @@ function errorHandler (err) {
 }
 
 gulp.task('sass', () => {
-    gulp.src('./src/scss/*.scss')
+    gulp.src('./src/client/scss/style.scss')
         .pipe(plumber())
         .pipe(sass({ style: 'expanded',errLogToConsole: true }))
         .pipe(concat('main.css'))
@@ -42,8 +42,8 @@ gulp.task('js', () => {
 
 
 gulp.task('watch', () => {
-    gulp.watch('./src/scss/**/*.scss', ['sass']);
-    gulp.watch('./src/js/**/*.js', ['js']);
+    gulp.watch('./src/client/scss/**/*.scss', ['sass']);
+    gulp.watch('./src/client/js/**/*.js', ['js']);
 });
 
 gulp.task('default', [
