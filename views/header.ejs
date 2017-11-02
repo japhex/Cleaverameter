@@ -38,7 +38,12 @@
 <header class="sub-header sub-header__client-actions sticky-header">
     <nav class="navbar navbar-light">
         <div class="container">
-            <span></span>
+            <form action="/client/parameters" method="get" class="form-inline">
+                <div class="form-group">
+                    <input class="form-control form-control-sm" type="text" name="searchTerm" id="searchTerm" />
+                    <button type="submit" class="btn btn-success btn-sm">Search</button>
+                </div>
+            </form>
             <div class="justify-content-end">
                 <a href="/client/parameters" class="btn btn-dark btn-sm">Reset Filters</a>
                 <button type="button" class="btn btn-success btn-sm">Export</button>
