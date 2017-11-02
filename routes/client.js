@@ -17,12 +17,17 @@ router.get('/parameters', (req, res) => {
         res.redirect('/');
     } else {
         var systemParameterGroup = req.query.parameterGroup,
+            searchTerm = req.query.searchTerm,
             whereClause = {
                 client_context:req.session.clientId
             };
 
         if (systemParameterGroup !== undefined) {
             whereClause.group_id = systemParameterGroup;
+        }
+
+        if (searchTerm !== undefined) {
+            whereClause.$or = [{name:{$like:'%' + searchTerm + '%'},description:{$like:'%' + searchTerm + '%'}}];
         }
 
         models.system_parameter.findAll({where:whereClause, include: [{ all: true, nested: true }], limit:100}).then(parameters => {
