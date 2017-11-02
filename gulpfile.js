@@ -25,15 +25,6 @@ gulp.task('sass', () => {
         .pipe(livereload());
 });
 
-// gulp.task('js', () => {
-//     return browserify('./src/js/app.js', {debug: true, transform: [underscoreify]})
-//         .transform("babelify")
-//         .bundle()
-//         .on('error', errorHandler)
-//         .pipe(source('main.build.js'))
-//         .pipe(gulp.dest('./public/js'))
-// });
-
 gulp.task('js', () => {
 	return gulp.src(['./src/client/js/main.js'])
 		.pipe(webpackStream(require('./webpack.config.local'), webpack))
