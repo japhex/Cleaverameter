@@ -4,3 +4,4 @@ public/*
 .sass-cache
 public/**/*.js
 public/**/*.css
+config/config.json
