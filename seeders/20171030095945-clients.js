@@ -8,8 +8,6 @@ module.exports = {
             schema: 'mint_velvet',
             current_release: 'MINTVELVET_27',
             fcp_label: 'Webclient-6.7.0-RC.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -18,8 +16,6 @@ module.exports = {
             schema: 'coast',
             current_release: 'CST_26',
             fcp_label: 'Webclient-6.7.0-RC.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -28,8 +24,6 @@ module.exports = {
             schema: 'thomas_pink',
             current_release: 'TP_19',
             fcp_label: 'Webclient-6.7.0-RC.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -38,8 +32,6 @@ module.exports = {
             schema: 'cath_kidston',
             current_release: 'CATH_10',
             fcp_label: 'FCP-6.6.2-RC.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -48,8 +40,6 @@ module.exports = {
             schema: 'dunnes',
             current_release: 'DUNNES_12',
             fcp_label: 'FCP5.1.11.11-dunnes12.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -58,8 +48,6 @@ module.exports = {
             schema: 'farrow_and_ball',
             current_release: 'FAB_21',
             fcp_label: 'fcp5.4.2h.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -68,8 +56,6 @@ module.exports = {
             schema: 'gltc',
             current_release: 'GLTC_38',
             fcp_label: 'Webclient-6.6.6-GLTC-RC.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -78,8 +64,6 @@ module.exports = {
             schema: 'jigsaw',
             current_release: 'GLTC_38',
             fcp_label: 'Webclient-6.6.19-RC.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -88,8 +72,6 @@ module.exports = {
             schema: 'karen_millen_aus',
             current_release: 'KM_AUS_7',
             fcp_label: 'fcp5.1.11.11KMAus7.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -98,8 +80,6 @@ module.exports = {
             schema: 'phase_eight',
             current_release: 'PHE-33',
             fcp_label: 'fcp5.4.2phe32.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -108,8 +88,6 @@ module.exports = {
             schema: 'get_the_label',
             current_release: 'TOPGRADE-32',
             fcp_label: 'Webclient-6.7.1-RC.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         },
         {
@@ -118,8 +96,6 @@ module.exports = {
             schema: 'whsmith',
             current_release: 'WHSMITH_14',
             fcp_label: 'fcp5.2.2.1.whs-14_6.cert',
-            last_successful_build: '0000-00-00 00:00:00',
-            last_failed_build: '0000-00-00 00:00:00',
             build_status: 'successful'
         }], {});
     },
