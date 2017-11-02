@@ -1,4 +1,7 @@
 node_modules/
-public/
+public/*
 .nyc_output
 .sass-cache
+public/**/*.js
+public/**/*.css
+config/config.json

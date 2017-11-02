@@ -1,21 +1,47 @@
 <% layout('../layouts/main') -%>
 
-<div class="row">
+<div class="card-columns">
     <% for(var i=0;i < parameters.length; i++) { %>
-        <div class="col-sm-4">
-            <div class="card border-secondary mb-3" style="max-width: 20rem;">
-                <div class="card-header">
-                    <%= parameters[i].name %>
-                    <% if (parameters[i].value) { %>
-                        <i class="card-header__value card-header__value--active material-icons">done</i>
-                    <% } else { %>
-                        <i class="card-header__value card-header__value--inactive material-icons">close</i>
-                    <% } %>
+        <%
+            var parameterName = parameters[i].name.toString().replace(/_/g, ' '),
+                parameterValueType = parameters[i].type,
+                parameterValue = parameters[i].value,
+                parameterBusinessQuestion = parameters[i].question,
+                parameterDescription = parameters[i].description,
+                parameterLastUpdatedTime = moment(parameters[i].last_updated_dts).format(),
+                parameterLastUpdatedBy = parameters[i].last_updated_by,
+                parameterGroup = parameters[i].system_parameter_group !== null ? parameters[i].system_parameter_group.dataValues.name : 'none';
+        %>
+
+        <div class="card border-secondary mb-3">
+            <div class="card-header">
+                <h2 class="card-header__name">
+                    <%= parameterName %>
+                </h2>
+                <small class="card-header__value-type badge badge-warning">
+                    <%= parameterValueType !== null ? parameterValueType.replace('java.lang.','').replace('java.util.','') : parameterValueType %>
+                </small>
+                <small class="card-header__value-type badge badge-secondary">
+                    <a href="?parameterGroup=<%= parameters[i].group_id %>"><%= parameterGroup %></a>
+                </small>
+                <div class="card-header__info clearfix">
+                    <i class="material-icons" data-toggle="tooltip" data-placement="left" title="<%= parameterBusinessQuestion %>">help_outline</i>
                 </div>
-                <div class="card-body text-secondary">
-                    <h4 class="card-title"><%= parameters[i].value %></h4>
-                    <p class="card-text"><%= parameters[i].description %></p>
-                </div>
+            </div>
+            <div class="card-body text-secondary">
+                <h4 class="card-title">
+                    <code>
+                        <% if (parameters[i].type == 'java.lang.Boolean' || parameters[i].type == 'java.lang.String' || parameters[i].type == 'java.lang.Integer' || parameters[i].type == 'java.lang.Double') { %>
+                            <%= parameterValue.match(/\>(.*?)\</)[1] %>
+                        <% } else { %>
+                            <%= parameterValue.length > 100 ? parameterValue.substring(0,100) + '...' : parameterValue %>
+                        <% } %>
+                    </code>
+                </h4>
+                <p class="card-text"><%= parameterDescription %></p>
+            </div>
+            <div class="card-footer">
+                <small>last updated <%= moment(parameterLastUpdatedTime).fromNow() %> by <strong><%= parameterLastUpdatedBy %></strong></small>
             </div>
         </div>
     <% } %>

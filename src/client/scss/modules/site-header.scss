@@ -5,9 +5,42 @@
     }
 }
 
-.sub-header {
+.sub-header__client-details {
+    color:#fff;
+}
+
+.sub-header__client-actions {
     .navbar {
         background:$color-light-blue;
+    }
+}
+
+.sub-header__version {
+    line-height: 2;
+
+    small {
+        position: relative;
+    }
+}
+
+.sub-header__client-details {
+    .navbar {
+        padding:0;
+    }
+}
+
+.sub-header__status {
+    position: absolute;
+    top:-3px;
+    right:-22px;
+    font-size:19px;
+
+    &--success {
+        color:$color-green;
+    }
+
+    &--failed {
+        color:$color-red;
     }
 }
 
