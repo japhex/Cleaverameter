@@ -12,7 +12,7 @@ const Layout = () => {
     return (
         <div>
             <Header />
-            <main>
+            <main class="container">
                 {routes}
             </main>
             <Footer />

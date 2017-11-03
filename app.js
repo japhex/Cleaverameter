@@ -33,8 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'ssshhhhh'}));
 
 // Bind routes
-app.use('/', routes);
 app.use('/client', clientModels);
+app.use('/', routes);
+
 
 /// catch 404 and forward to error handler
 app.use((req, res, next) => {

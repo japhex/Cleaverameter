@@ -35,7 +35,8 @@ gulp.task('sass', () => {
 // });
 
 gulp.task('js', () => {
-	return gulp.src(['./src/client/js/main.js'])
+    console.log('js', 'fjdklfjlkd', require('./webpack.config.local'));
+	return gulp.src(['./src/client/js/main.jsx'])
 		.pipe(webpackStream(require('./webpack.config.local'), webpack))
 		.pipe(gulp.dest('./public'));
 });
