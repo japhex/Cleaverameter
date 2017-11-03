@@ -1,9 +1,11 @@
+@import 'variables.scss';
+
 body {
     > .container {
         padding:1rem 0;
     }
 }
 
-@import 'variables.scss';
 @import './modules/card-header';
 @import './modules/site-header';
+@import './modules/search-form';

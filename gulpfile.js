@@ -17,22 +17,13 @@ function errorHandler (err) {
 }
 
 gulp.task('sass', () => {
-    gulp.src('./src/scss/*.scss')
+    gulp.src('./src/client/scss/style.scss')
         .pipe(plumber())
         .pipe(sass({ style: 'expanded',errLogToConsole: true }))
         .pipe(concat('main.css'))
         .pipe(gulp.dest('./public/css'))
         .pipe(livereload());
 });
-
-// gulp.task('js', () => {
-//     return browserify('./src/js/app.js', {debug: true, transform: [underscoreify]})
-//         .transform("babelify")
-//         .bundle()
-//         .on('error', errorHandler)
-//         .pipe(source('main.build.js'))
-//         .pipe(gulp.dest('./public/js'))
-// });
 
 gulp.task('js', () => {
     console.log('js', 'fjdklfjlkd', require('./webpack.config.local'));
@@ -43,8 +34,8 @@ gulp.task('js', () => {
 
 
 gulp.task('watch', () => {
-    gulp.watch('./src/scss/**/*.scss', ['sass']);
-    gulp.watch('./src/js/**/*.js', ['js']);
+    gulp.watch('./src/client/scss/**/*.scss', ['sass']);
+    gulp.watch('./src/client/js/**/*.js', ['js']);
 });
 
 gulp.task('default', [
