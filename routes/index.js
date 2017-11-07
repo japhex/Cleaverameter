@@ -7,16 +7,21 @@ const sessionObject = require('../middleware/session');
 
 router.use(sessionObject);
 
-/* GET home page. */
-router.get('/', (req, res) => {
+router.get('/api/clients', (req, res) => {
     models.client.findAll().then(clients => {
         req.session.clients = clients;
-
-        res.render('index', {
-            title: 'Cleaverameter',
-            clients: clients
-        });
+        res.json({clients: clients});
     });
 });
+
+/* GET home page. Route all page refresh urls to this route */
+router.get('*', (req, res) => {
+    res.render('index', {
+        title: 'Cleaverameter'
+    });
+});
+
+
+
 
 module.exports = router;

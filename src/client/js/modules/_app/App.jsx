@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Layout from 'modules/layout/Layout';
 
 /**
@@ -8,7 +9,7 @@ import Layout from 'modules/layout/Layout';
 export default class App extends Component {
     render() {
         return (
-            <Router history={this.props.history}>
+            <Router>
                 <Layout />
             </Router>
         );

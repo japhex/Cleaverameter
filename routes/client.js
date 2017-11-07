@@ -67,6 +67,27 @@ router.get('/parameters/search', (req, res) => {
     });
 });
 
+router.get('/parameters/:clientId', (req, res) => {
+    const clientId = req.params.clientId;
+    const systemParameterGroup = req.query.parameterGroup;
+    const searchTerm = req.query.searchTerm;
+    const whereClause = {
+        client_context: clientId
+    };
+
+    if (systemParameterGroup !== undefined) {
+        whereClause.group_id = systemParameterGroup;
+    }
+
+    if (searchTerm !== undefined) {
+        whereClause.$or = [{name:{$like:'%' + searchTerm + '%'},description:{$like:'%' + searchTerm + '%'}}];
+    }
+
+    models.system_parameter.findAll({where:whereClause, include: [{ all: true, nested: true }], limit:100}).then(parameters => {
+        return res.json({parameters: parameters});
+    });
+});
+
 /*
     CLIENT UTILITIES
 */

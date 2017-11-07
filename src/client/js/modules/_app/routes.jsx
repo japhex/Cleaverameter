@@ -7,6 +7,6 @@ import ClientParametersPage from 'modules/client/pages/ClientParametersPage';
 export default (
     <div>
         <Route exact path="/" component={ClientListPage} />
-        <Route exact path="/client/:clientId" component={ClientParametersPage} />
+        <Route exact path="/clients/:clientId" component={ClientParametersPage} />
     </div>
 );

@@ -1,12 +1,3 @@
 <% layout('layouts/main') -%>
 
-<div>
-    <form method="post" action="/client/set-context">
-        <select class="form-control" id="clientId" name="clientId">
-            <% for(var i=0;i < clients.length; i++) { %>
-                <option value="<%= clients[i].id %>"><%= clients[i].name %></option>
-            <% } %>
-        </select>
-        <button class="form-control btn btn-light">Set client</button>
-    </form>
-</div>
+<div id="root"></div>
