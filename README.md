@@ -30,3 +30,13 @@ The app runs off of a Node.js/Express.js stack mainly, but overall includes the 
 5. **(optional)** This will run the app, and the app's models will scaffold the Database tables for you. There are also some seed scripts, so if you wish to start with some dummy data, run 'node_modules/.bin/sequelize db:seed:all'
 
 **NOTE: The app runs on localhost:3000, so port 3000, if you have another process running on this port, you'll need to stop it.**
+
+---
+
+## Project Resources
+
+There is a kanban board created which has tasks assigned. This can be sub-sliced into sprints and I would encourage priorities and tags to be used:
+
+https://trello.com/c/PfCYOJ3m/2-functionality-api-to-query-all-parameters-instead-of-client-specific-ones
+
+The release version was set in git at v1.0 when the original high level scope was delivered. I would also encourage this is use for minor/major versions.

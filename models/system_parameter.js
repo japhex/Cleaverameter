@@ -50,6 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     SystemParameterGroup.hasMany(SystemParameter, {foreignKey: 'group_id', as: 'SystemParameters'});
 
     SystemParameter.sync();
+    SystemParameterGroup.sync();
 
     return SystemParameter;
 };

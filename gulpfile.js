@@ -42,3 +42,8 @@ gulp.task('default', [
     'js',
     'watch'
 ]);
+
+gulp.task('production', [
+    'sass',
+    'js'
+]);

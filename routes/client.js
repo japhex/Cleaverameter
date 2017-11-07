@@ -12,6 +12,9 @@ router.use(sessionObject);
 */
 
 /* GET client parameters. */
+
+// Need 2 inputs, 'name' and 'value', 'name' will do a LIKE search on 'name' and 'description', 'value' will do a LIKE search on 'value'.
+
 router.get('/parameters', (req, res) => {
     if (req.session.clientId === undefined) {
         res.redirect('/');
@@ -37,6 +40,31 @@ router.get('/parameters', (req, res) => {
             });
         });
     }
+});
+
+/* POST parameters search */
+router.get('/parameters/search', (req, res) => {
+    var isAjaxRequest = req.xhr,
+        nameSearch = req.body.name,
+        valueSearch = req.body.value,
+        whereClause;
+
+    if (nameSearch !== undefined) {
+        whereClause = {$or: [{name:{$like:'%' + searchTerm + '%'},description:{$like:'%' + searchTerm + '%'}}]};
+    } else if (valueSearch !== undefined) {
+        whereClause = {value:{$like:'%' + searchTerm + '%'}};
+    }
+
+    models.system_parameter.findAll({where:whereClause}, limit:100}).then(parameters => {
+        if (!isAjaxRequest) {
+            res.render('models/system_parameter', {
+                title: 'Cleaverameter | Parameters',
+                parameters: parameters
+            });
+        } else {
+            res.json({parameters:parameters, count: parameters.length});
+        }
+    });
 });
 
 /*
